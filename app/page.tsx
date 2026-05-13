@@ -315,17 +315,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="waitlist">
-        <div className="container">
-          <h2 className="section-title">Join the Early Access Beta</h2>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <button type="submit">Get Early Access</button>
-          </form>
-        </div>
-      </section>
-
       <footer>
         This tool provides AI-generated insights and does not constitute legal advice.
       </footer>
