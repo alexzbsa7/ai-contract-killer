@@ -1,10 +1,334 @@
+'use client';
+
 export default function Home() {
   return (
-    <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "#0f172a", color: "#fff", fontFamily: "Inter, sans-serif" }}>
-      <div style={{ maxWidth: 720, textAlign: "center", padding: "4rem" }}>
-        <h1>AI Contract Killer</h1>
-        <p>Next.js app with Vercel Analytics installed.</p>
-      </div>
+    <main style={{ background: "#0f172a", color: "white", fontFamily: "'Inter', sans-serif", lineHeight: "1.6" }}>
+      <style>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .container {
+          width: 90%;
+          max-width: 1200px;
+          margin: auto;
+        }
+
+        section {
+          padding: 100px 0;
+        }
+
+        .hero {
+          text-align: center;
+          padding-top: 140px;
+          padding-bottom: 120px;
+        }
+
+        .badge {
+          display: inline-block;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.12);
+          padding: 10px 18px;
+          border-radius: 999px;
+          font-size: 14px;
+          margin-bottom: 30px;
+          color: #cbd5e1;
+        }
+
+        h1 {
+          font-size: 68px;
+          line-height: 1.05;
+          margin-bottom: 24px;
+          font-weight: 800;
+          max-width: 950px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .subtitle {
+          font-size: 22px;
+          color: #cbd5e1;
+          max-width: 760px;
+          margin: auto;
+          margin-bottom: 40px;
+        }
+
+        .cta-button {
+          display: inline-block;
+          background: white;
+          color: #0f172a;
+          padding: 16px 32px;
+          border-radius: 14px;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 18px;
+          transition: 0.2s ease;
+        }
+
+        .cta-button:hover {
+          transform: translateY(-2px);
+          opacity: 0.92;
+        }
+
+        .section-title {
+          text-align: center;
+          font-size: 44px;
+          margin-bottom: 60px;
+          font-weight: 800;
+        }
+
+        .problem-box {
+          max-width: 800px;
+          margin: auto;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 24px;
+          padding: 40px;
+        }
+
+        .problem-box ul {
+          list-style: none;
+        }
+
+        .problem-box li {
+          padding: 16px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          color: #cbd5e1;
+          font-size: 18px;
+        }
+
+        .problem-box li:last-child {
+          border-bottom: none;
+        }
+
+        .steps {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
+
+        .card {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 24px;
+          padding: 40px 30px;
+        }
+
+        .step-number {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: white;
+          color: #0f172a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        .card h3 {
+          font-size: 24px;
+          margin-bottom: 16px;
+        }
+
+        .card p {
+          color: #cbd5e1;
+        }
+
+        .mockup {
+          max-width: 900px;
+          margin: auto;
+          background: #111827;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 24px;
+          padding: 40px;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+        }
+
+        .mockup-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 40px;
+        }
+
+        .risk-score {
+          background: #dc2626;
+          padding: 10px 18px;
+          border-radius: 999px;
+          font-weight: 700;
+        }
+
+        .warning {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          padding: 20px;
+          border-radius: 16px;
+          margin-bottom: 18px;
+          color: #e2e8f0;
+        }
+
+        .waitlist {
+          text-align: center;
+        }
+
+        form {
+          max-width: 600px;
+          margin: auto;
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        input {
+          flex: 1;
+          min-width: 260px;
+          padding: 18px;
+          border-radius: 14px;
+          border: none;
+          font-size: 16px;
+        }
+
+        button {
+          padding: 18px 28px;
+          border: none;
+          border-radius: 14px;
+          background: white;
+          color: #0f172a;
+          font-weight: 700;
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        footer {
+          padding: 40px 20px;
+          text-align: center;
+          color: #94a3b8;
+          font-size: 14px;
+          border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @media (max-width: 900px) {
+          h1 {
+            font-size: 48px;
+          }
+
+          .steps {
+            grid-template-columns: 1fr;
+          }
+
+          .subtitle {
+            font-size: 20px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          h1 {
+            font-size: 38px;
+          }
+
+          section {
+            padding: 70px 0;
+          }
+
+          .section-title {
+            font-size: 34px;
+          }
+
+          form {
+            flex-direction: column;
+          }
+
+          input, button {
+            width: 100%;
+          }
+        }
+      `}</style>
+
+      <section className="hero">
+        <div className="container">
+          <div className="badge">AI-Powered Contract Risk Detection</div>
+          <h1>Stop signing risky contracts blindly.</h1>
+          <p className="subtitle">
+            AI instantly explains hidden legal risks, dangerous clauses, and negotiation red flags before you sign.
+          </p>
+          <a href="https://tally.so/r/lbKGMN" className="cta-button" target="_blank" rel="noopener noreferrer">
+            Get Free Contract Risk Analysis
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <h2 className="section-title">Most people sign contracts they don't fully understand.</h2>
+          <div className="problem-box">
+            <ul>
+              <li>⚠ Hidden penalties and fees</li>
+              <li>⚠ Auto-renewal traps</li>
+              <li>⚠ Liability exposure</li>
+              <li>⚠ Confusing legal jargon</li>
+              <li>⚠ One-sided freelancer agreements</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <h2 className="section-title">How It Works</h2>
+          <div className="steps">
+            <div className="card">
+              <div className="step-number">1</div>
+              <h3>Upload Contract</h3>
+              <p>Upload your PDF or agreement in seconds.</p>
+            </div>
+            <div className="card">
+              <div className="step-number">2</div>
+              <h3>AI Detects Risks</h3>
+              <p>The AI scans clauses, liabilities, and risky terms instantly.</p>
+            </div>
+            <div className="card">
+              <div className="step-number">3</div>
+              <h3>Get Clear Explanations</h3>
+              <p>Understand what matters before signing anything.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <h2 className="section-title">See It In Action</h2>
+          <div className="mockup">
+            <div className="mockup-header">
+              <h3>Contract Analysis Report</h3>
+              <div className="risk-score">Risk Score: HIGH</div>
+            </div>
+            <div className="warning">⚠ Auto-renewal clause detected with 12-month commitment.</div>
+            <div className="warning">⚠ Liability clause heavily favors the client.</div>
+            <div className="warning">⚠ Payment terms may delay compensation up to 90 days.</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="waitlist">
+        <div className="container">
+          <h2 className="section-title">Join the Early Access Beta</h2>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Get Early Access</button>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        This tool provides AI-generated insights and does not constitute legal advice.
+      </footer>
     </main>
   );
 }
