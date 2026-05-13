@@ -1,0 +1,16 @@
+import { Analytics } from "@vercel/analytics/next";
+
+export const metadata = {
+  title: "AI Contract Killer",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  );
+}
